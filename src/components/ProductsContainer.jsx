@@ -1,30 +1,60 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { usePagination } from '../contexts/paginationContext';
 import { addCart, removeCart } from '../slices/cartSlice';
+import { setCategories, setError, setLoading, setProducts } from '../slices/productsSlice';
 import { AddToCartIcon, RemoveFromCartIcon } from './Icons';
 
 
 function ProductsContainer() {
 
   const state = useSelector(state => state.products)
-  const { products } = state
+  const dispatch = useDispatch()
+  const {handlerSetTotal, limit, page} = usePagination()
+  const { products} = state
 
+
+  useEffect(() => {
+    const fectchProduct = async () => {
+      try {
+        dispatch(setLoading({loading: true}))
+        const skip = (page - 1) * limit;
+        const res = await fetch(`https://dummyjson.com/products?limit=${limit}&skip=${skip}`);
+
+        if (!res.ok) throw new Error('Processing data failured')
+
+        const data = await res.json();
+        handlerSetTotal(data.total);
+        dispatch(setProducts(data.products))
+        dispatch(setCategories())
+
+      } catch (error) {
+        setError(error)
+      } finally {
+        dispatch(setLoading({loading: false}))
+      }
+    }
+
+    fectchProduct()
+
+  }, [page])
 
   return (
+
     <div className='products-container'>
       {products?.map(product => {
 
-        const { id, title, price, image, rating } = product
+        const { id, title, price, thumbnail, rating } = product
 
         return (
           <div className='product-card' key={id}>
-            <img src={image} alt={title} />
+            <img src={thumbnail} alt={title} />
 
             <div className='product-details'>
               <h2>{title}</h2>
               <p>price: {price}</p>
               <div className='rating-container'>
-                <span>{rating.rate}</span>
+                <span>{rating}</span>
                 <BtnProduct product={product} />
               </div>
             </div>
@@ -62,7 +92,7 @@ function BtnProduct({ product }) {
               id: product.id,
               title: product.title,
               price: product.price,
-              image: product.image,
+              thumbnail: product.thumbnail,
               quantity: 1
             })} />)
           : (<RemoveFromCartIcon

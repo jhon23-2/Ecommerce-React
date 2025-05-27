@@ -1,11 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import products from "../mock/products.json";
 
 const initialState = {
-  products: products,
+  products: [],
   loading: false,
   error: null,
-  categories: [...new Set(products.map((product) => product.category))],
+  categories: [],
 };
 
 export const productSlice = createSlice({
@@ -19,9 +18,10 @@ export const productSlice = createSlice({
       };
     },
     setLoading: (state, action) => {
+      const { loading } = action.payload
       return {
         ...state,
-        loading: action.payload,
+        loading: loading,
       };
     },
     setError: (state, action) => {
@@ -30,6 +30,12 @@ export const productSlice = createSlice({
         error: action.payload,
       };
     },
+    setCategories: (state) => {
+      return {
+        ...state,
+        categories: [...new Set(state.products.map(product => product.category))]
+      }
+    }
   },
 });
 

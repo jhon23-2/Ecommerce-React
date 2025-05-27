@@ -1,0 +1,238 @@
+/* Fondo general y centrado */
+.admin-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0e7ef 0%, #f8fafc 100%);
+  padding: 0 0 3rem 0; /* Sin padding arriba */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header visual tipo barra de navegación */
+.admin-header {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+  border-bottom: 3px solid #009688;
+  margin-top: 0;           /* <-- Pegado arriba */
+  margin-bottom: 2.2rem;
+  padding: 0;
+  position: sticky;        /* O usa fixed si quieres que siempre esté visible */
+  top: 0;
+  z-index: 100;
+}
+
+.admin-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.2rem 2rem;
+}
+
+.admin-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.admin-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #009688;
+  letter-spacing: 1px;
+}
+
+.admin-nav-links {
+  display: flex;
+  gap: 2.2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-nav-link {
+  text-decoration: none;
+  color: #222;
+  font-size: 1.08rem;
+  font-weight: 600;
+  padding: 0.4rem 1.1rem;
+  border-radius: 6px;
+  transition: background 0.18s, color 0.18s;
+}
+
+.admin-nav-link:hover,
+.admin-nav-link:focus {
+  background: #009688;
+  color: #fff;
+}
+
+.admin-user {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f8fafc;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #009688;
+  font-size: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+/* Sección del formulario */
+.admin-form-section {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 24px rgba(0,150,136,0.10);
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  margin-top: 2.5rem;      /* Espacio debajo del header */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 4px solid #009688;
+  position: relative;
+}
+
+.admin-form-section h2 {
+  color: #009688;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.admin-product-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  position: relative;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #009688;
+  font-size: 1.08rem;
+  margin-bottom: 0.1rem;
+  letter-spacing: 0.2px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="file"],
+.form-group textarea {
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0.8rem 1rem 0.8rem 2.5rem;
+  font-size: 1rem;
+  background: #f8fafc;
+  color: #222;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+
+.form-group input[type="file"] {
+  background: #fff;
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border: 1.5px solid #009688;
+  box-shadow: 0 2px 8px rgba(0,150,136,0.09);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 70px;
+  max-height: 200px;
+  padding-left: 2.5rem;
+}
+
+/* Iconos en los inputs (puedes usar ::before o poner un <span class="input-icon">) */
+.input-icon {
+  position: absolute;
+  left: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #009688;
+  font-size: 1.2rem;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Botón principal */
+.admin-btn {
+  background: linear-gradient(90deg, #009688 60%, #00bfae 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem 1.8rem;
+  font-size: 1.08rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,150,136,0.10);
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  margin-top: 1.2rem;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.admin-btn:hover {
+  background: linear-gradient(90deg, #00796b 60%, #009688 100%);
+  transform: scale(1.05);
+  box-shadow: 0 6px 24px rgba(0,150,136,0.13);
+}
+
+/* Separador visual para más administración */
+.admin-form-section::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: -22px;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 6px;
+  background: #009688;
+  border-radius: 8px;
+  opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .admin-navbar {
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1.2rem 0.5rem;
+  }
+  .admin-nav-links {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .admin-header,
+  .admin-form-section {
+    padding: 1.2rem 0.7rem;
+    max-width: 98vw;
+  }
+  .admin-header h1 {
+    font-size: 1.4rem;
+  }
+}

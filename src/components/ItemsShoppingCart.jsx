@@ -46,7 +46,7 @@ function ItemCartAside({ cart }) {
     <ul>
       {cart.map((item) => (
         <li key={item.id} className="cart-item">
-          <img src={item.image} alt={item.title} />
+          <img src={item.thumbnail} alt={item.title} />
           <div className="cart-item-details">
             <span>{item.title}</span>
             <span>${item.price}</span>
@@ -77,7 +77,7 @@ function Button({ item }) {
     dispatch(stockCart({
       id: item.id,
       quantity: quantity - 1
-    }))
+    })) 
   }
 
   const handlerRemove = () => {

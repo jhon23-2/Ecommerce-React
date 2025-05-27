@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 function CategoriesHeader() {
 
   const products = useSelector(state => state.products)
-  const {categories} = products
+  const { categories } = products
 
-  
+
   return (
 
     <div className='categories-container'>
@@ -17,7 +17,7 @@ function CategoriesHeader() {
             type="range"
             name='range-price'
             id='range-price'
-            min={0} 
+            min={0}
             max={100}
             defaultValue={0}
           />
@@ -38,5 +38,7 @@ function CategoriesHeader() {
     </div>
   );
 }
+
+
 
 export default CategoriesHeader;
