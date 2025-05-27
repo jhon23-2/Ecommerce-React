@@ -1,15 +1,10 @@
 import './App.css'
+import Home from './pages/Home'
 
 function App() {
 
   return (
-    <div>
-      
-      <header className=''>
-        <h1>Welcome to Ecommerce</h1>
-      </header>
-
-    </div>
+    <Home />
   )
 }
 
