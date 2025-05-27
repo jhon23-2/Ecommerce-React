@@ -1,12 +1,108 @@
-# React + Vite
+# Ecommerce React App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una tienda en línea construida con **React**, **Redux Toolkit** y **Vite**.  
+A continuación encontrarás una mini documentación de los elementos más importantes, priorizando la arquitectura de contextos (Redux slices) y su funcionalidad.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🗂️ Estructura Principal
 
-## Expanding the ESLint configuration
+```
+src/
+│
+├── components/         # Componentes reutilizables (Header, ProductsContainer, etc.)
+├── contexts/           # Configuración de Redux store
+├── slices/             # Redux slices (cartSlice, productsSlice)
+└── App.jsx             # Componente principal
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ⚙️ Contextos (Redux Slices)
+
+### 1. **productsSlice**
+
+- **Responsabilidad:** Maneja el estado global de los productos y categorías.
+- **Acciones principales:**
+  - `setProducts`: Actualiza la lista de productos filtrados o buscados.
+  - `setCategories`: Guarda las categorías disponibles para el filtro.
+- **Uso:** Permite que cualquier componente acceda y modifique la lista de productos y categorías desde cualquier parte de la app.
+
+### 2. **cartSlice**
+
+- **Responsabilidad:** Maneja el estado global del carrito de compras.
+- **Acciones principales:**
+  - `addCart`: Agrega un producto al carrito.
+  - `removeCart`: Elimina un producto del carrito.
+  - `clearCart`: Vacía el carrito.
+- **Uso:** Permite mostrar el carrito, agregar, quitar y limpiar productos desde cualquier componente.
+
+### 3. **configContext.js**
+
+- **Responsabilidad:** Configura el store de Redux y combina los reducers de productos y carrito.
+- **Uso:** Se importa en el entry point de la app para proveer el store a todos los componentes.
+
+---
+
+## 🔄 Diagrama Visual de Contextos
+
+```mermaid
+graph TD
+    A[App.jsx] -->|Provider| B[Redux Store]
+    B --> C[productsSlice]
+    B --> D[cartSlice]
+    C -->|Acceso| E[ProductsContainer]
+    C -->|Acceso| F[CategoriesHeader]
+    D -->|Acceso| G[Header]
+    D -->|Acceso| H[ItemsShoppingCart]
+```
+
+---
+
+## 🛠️ Funcionalidades Clave
+
+- **Filtrado de productos:** Por categoría y rango de precio.
+- **Búsqueda:** Por nombre de producto.
+- **Carrito de compras:** Añadir, quitar y ver productos seleccionados.
+- **Persistencia global:** Todos los componentes acceden al estado global mediante Redux.
+
+---
+
+## 🚀 Cómo ejecutar
+
+```bash
+npm install
+npm run dev
+```
+
+---
+
+## 📦 Dependencias principales
+
+- React
+- Redux Toolkit
+- React Redux
+- Vite
+
+---
+
+## 🔄 Diagrama Visual de los componentes hechos en la aplicacion 
+
+- Card Component
+
+![Vista principal del componente Card](./src/assets/Cart.png)
+
+- Filter Component
+
+![Vista principal del componente Card](./src/assets/Filter.png)
+
+- Header Componet
+
+![Vista principal del componente Card](./src/assets/Header.png)
+
+- Item Card
+
+![Vista principal del componente Card](./src/assets/ItemCar.png)
+
+> **Nota:** 
+
