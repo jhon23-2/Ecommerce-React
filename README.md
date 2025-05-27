@@ -86,6 +86,11 @@ npm run dev
 
 ---
 
+## 🌐 Proyecto en línea
+
+Puedes ver la aplicación funcionando aquí:  
+[https://ecommerce-ucc-project.netlify.app/](https://ecommerce-ucc-project.netlify.app/)
+
 ## 🔄 Diagrama Visual de los componentes hechos en la aplicacion 
 
 - Card Component

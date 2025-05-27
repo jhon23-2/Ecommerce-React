@@ -23,14 +23,13 @@ export const PaginationProvider = ({ children }) => {
 
   useEffect(() => {
     setTotalPages(Math.ceil(total / limit))
-  }, [total, limit])
+  }, [total])
 
   return (
     <PaginationContext.Provider value={{
       limit,
       total,
       page,
-      limit,
       totalPages,
       handlerSetPageNext,
       handlerSetPagePrevius,
