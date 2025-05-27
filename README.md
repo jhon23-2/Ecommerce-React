@@ -104,5 +104,7 @@ npm run dev
 
 ![Vista principal del componente Card](./src/assets/ItemCar.png)
 
-> **Nota:** 
+> **Nota:**  Aun no esta completado me enfoque en la parte visual con react y el manejo de estructura de los componentes , pero aun asi el backend utilizado en el projecto fue una colaboracion en donde tube participacion se que no cuenta pero ajam se hizo algo para que el projecto no quedara sin backed  ... 
+
+
 
