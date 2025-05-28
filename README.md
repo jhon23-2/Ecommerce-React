@@ -109,7 +109,7 @@ Puedes ver la aplicación funcionando aquí:
 
 ![Vista principal del componente Card](./src/assets/ItemCar.png)
 
-> **Nota:**  Aun no esta completado me enfoque en la parte visual con react y el manejo de estructura de los componentes , pero aun asi el backend utilizado en el projecto fue una colaboracion en donde tube participacion se que no cuenta pero ajam se hizo algo para que el projecto no quedara sin backed  ... 
+> **Nota:**  Aun no esta completado el projecto , esta enfocado en la parte de estructura de componentes y diseño de componentes, proximamente tendra un backend con todos los modulos de compra gestionados
 
 
 
